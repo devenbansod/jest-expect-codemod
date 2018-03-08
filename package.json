@@ -1,0 +1,30 @@
+{
+  "name": "jest-expect-codemod",
+  "version": "0.0.1",
+  "description": "CodeMods for migrating `chai.assert`, `chai.expect`, `assert` -based test assertions to jest's `expect` assertions",
+  "repository": "https://github.com/devenbansod/jest-expect-codemod",
+  "author": "Deven Bansod <devenbansod.bits@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "jest": "jest",
+    "lint": "eslint .",
+    "test": "sh ./__tests__/runner.sh"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.18.2",
+    "eslint-config-babel": "^7.0.2",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "^22.4.2",
+    "prettier": "^1.11.1",
+    "prettier-eslint": "^8.8.1"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "./__tests__/fixtures/"
+    ],
+    "testEnvironment": "node"
+  }
+}
