@@ -4,10 +4,17 @@ const functionsToBeTransformed = [
   "deepEqual",
   "notEqual",
   "throws",
+  "throw",
   "strictEqual",
+  "doesNotThrow",
+  "deepStrictEqual",
+  "notStrictEqual",
+  "isFalse",
+  "isTrue",
+  "isUndefined",
 ];
 
-const getParams = (propertyName, args) => {
+const getParams = (propertyName, args, j) => {
   switch (propertyName) {
     case "ok":
       return {
@@ -24,6 +31,7 @@ const getParams = (propertyName, args) => {
       };
 
     case "deepEqual":
+    case "deepStrictEqual":
       return {
         arguments1: [args[0]],
         identifier2: "toEqual",
@@ -31,6 +39,7 @@ const getParams = (propertyName, args) => {
       };
 
     case "notEqual":
+    case "notStrictEqual":
       return {
         arguments1: [args[0]],
         identifier2: "not.toBe",
@@ -38,10 +47,17 @@ const getParams = (propertyName, args) => {
       };
 
     case "throws":
+    case "throw":
       return {
         arguments1: [args[0]],
         identifier2: "toThrow",
-        arguments2: [args[1]],
+        arguments2: args.length > 1 ? [args[1]] : [],
+      };
+    case "doesNotThrow":
+      return {
+        arguments1: [args[0]],
+        identifier2: "not.toThrow",
+        arguments2: args.length > 1 ? [args[1]] : [],
       };
 
     case "strictEqual":
@@ -49,6 +65,27 @@ const getParams = (propertyName, args) => {
         arguments1: [args[0]],
         identifier2: "toBe",
         arguments2: [args[1]],
+      };
+
+    case "isFalse":
+      return {
+        arguments1: [args[0]],
+        identifier2: "toBe",
+        arguments2: [j.booleanLiteral(false)],
+      };
+
+    case "isTrue":
+      return {
+        arguments1: [args[0]],
+        identifier2: "toBe",
+        arguments2: [j.booleanLiteral(true)],
+      };
+
+    case "isUndefined":
+      return {
+        arguments1: [args[0]],
+        identifier2: "toBeUndefined",
+        arguments2: [],
       };
   }
 };
@@ -67,7 +104,7 @@ const getTransformedSource = (source, j, fnToTransform) => {
     })
     .replaceWith(path => {
       const args = path.value.arguments;
-      const params = getParams(fnToTransform, args);
+      const params = getParams(fnToTransform, args, j);
 
       const a = j.expressionStatement(
         j.callExpression(
