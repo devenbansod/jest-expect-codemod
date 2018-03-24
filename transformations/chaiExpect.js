@@ -1,4 +1,4 @@
-const functionsToBeTransformed = ["equal", "eql"];
+const functionsToBeTransformed = ["equal", "eql", "deep", "throw"];
 
 const getParams = (propertyName, args1, args2) => {
   switch (propertyName) {
@@ -13,6 +13,18 @@ const getParams = (propertyName, args1, args2) => {
       return {
         arguments1: args1,
         identifier2: "toEqual",
+        arguments2: args2,
+      };
+    case "deep":
+      return {
+        arguments1: args1,
+        identifier2: "toEqual",
+        arguments2: args2,
+      };
+    case "throw":
+      return {
+        arguments1: args1,
+        identifier2: "toThrow",
         arguments2: args2,
       };
   }
