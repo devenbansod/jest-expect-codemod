@@ -39,4 +39,17 @@ describe("Transformation tests", () => {
 
     expect(changedSource).toBe(expectedSource);
   });
+
+  it("Transform ExpectInstanceOf", () => {
+    const changedSource = fs.readFileSync(
+      fixturesDirectory + "expectInstanceOf/input.js",
+      "utf-8",
+    );
+    const expectedSource = fs.readFileSync(
+      fixturesDirectory + "expectInstanceOf/output.js",
+      "utf-8",
+    );
+
+    expect(changedSource).toBe(expectedSource);
+  });
 });

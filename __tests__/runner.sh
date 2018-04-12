@@ -2,7 +2,7 @@
 # Check if jscodeshift is available
 command -v jscodeshift >/dev/null 2>&1 || { echo "Tests require jscodeshift to be installed globally. Run npm install -g jscodeshift before running the tests. Aborting." >&2; exit 1; }
 
-declare -a transformationsToBeTested=("assert" "chaiAssert" "chaiExpect")
+declare -a transformationsToBeTested=("assert" "chaiAssert" "chaiExpect" "expectInstanceOf")
 
 # Run the transformations
 for transformation in "${transformationsToBeTested[@]}"
