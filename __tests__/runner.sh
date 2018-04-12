@@ -1,7 +1,3 @@
-
-# Check if jscodeshift is available
-command -v jscodeshift >/dev/null 2>&1 || { echo "Tests require jscodeshift to be installed globally. Run npm install -g jscodeshift before running the tests. Aborting." >&2; exit 1; }
-
 declare -a transformationsToBeTested=("assert" "chaiAssert" "chaiExpect" "expectInstanceOf" "expectToBeUndefined")
 
 # Run the transformations
@@ -12,7 +8,7 @@ do
    echo $inputFile
    declare inputFileBackup="__tests__/fixtures/$transformation/input.backup.js"
    cp $inputFile $inputFileBackup
-   jscodeshift -t "transformations/$transformation.js" $inputFile
+   yarn jscodeshift -t "transformations/$transformation.js" $inputFile
 done
 
 # Run the tests
