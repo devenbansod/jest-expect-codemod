@@ -5,6 +5,8 @@ This repository contains a collection of codemod scripts for use with [JSCodeshi
 
 *Currently, we don't support migration of all the assertions provided by these libraries, but PRs to add them are welcome. :-)*
 
+<a href="https://travis-ci.org/devenbansod/jest-expect-codemod"><img alt="Travis Status" src="https://travis-ci.org/devenbansod/jest-expect-codemod.svg?branch=master"></a>
+
 ### Setup & Run
 
 ```sh
