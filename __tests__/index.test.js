@@ -52,4 +52,17 @@ describe("Transformation tests", () => {
 
     expect(changedSource).toBe(expectedSource);
   });
+
+  it("Transform ExpectToBeUndefined", () => {
+    const changedSource = fs.readFileSync(
+      fixturesDirectory + "expectToBeUndefined/input.js",
+      "utf-8",
+    );
+    const expectedSource = fs.readFileSync(
+      fixturesDirectory + "expectToBeUndefined/output.js",
+      "utf-8",
+    );
+
+    expect(changedSource).toBe(expectedSource);
+  });
 });
