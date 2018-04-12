@@ -1,3 +1,5 @@
+#!/bin/bash
+
 declare -a transformationsToBeTested=("assert" "chaiAssert" "chaiExpect" "expectInstanceOf" "expectToBeUndefined")
 
 # Run the transformations
