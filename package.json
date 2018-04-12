@@ -9,7 +9,7 @@
   "scripts": {
     "jest": "jest",
     "lint": "eslint .",
-    "test": "sh ./__tests__/runner.sh",
+    "test": "./__tests__/runner.sh",
     "jscodeshift": "jscodeshift"
   },
   "devDependencies": {
