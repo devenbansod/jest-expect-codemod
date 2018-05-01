@@ -10,9 +10,8 @@ This repository contains a collection of codemod scripts for use with [JSCodeshi
 ### Setup & Run
 
 ```sh
-npm install -g jscodeshift
 git clone https://github.com/devenbansod/jest-expect-codemod.git
-jscodeshift -t <codemod-script> <file>
+yarn run shift -t transformations/<codemod-script> <file/folder to be converted>
 ```
 
 Use the `-d` option for a dry-run and use `-p` to print the output for
@@ -23,19 +22,19 @@ comparison.
 #### Migrate from [`assert`](https://nodejs.org/api/assert.html)
 
 ```sh
-jscodeshift -t jest-expect-codemod/transforms/assert.js <file>
+yarn run shift -t jest-expect-codemod/transforms/assert.js <file>
 ```
 
 #### Migrate from [`chai.assert`](https://chaijs.com/api/assert/)
 
 ```sh
-jscodeshift -t jest-expect-codemod/transforms/chaiAssert.js <file>
+yarn run shift -t jest-expect-codemod/transforms/chaiAssert.js <file>
 ```
 
 #### Migrate from [`chai.expect`](https://chaijs.com/api/bdd/)
 
 ```sh
-jscodeshift -t jest-expect-codemod/transforms/chaiExpect.js <file>
+yarn run shift -t jest-expect-codemod/transforms/chaiExpect.js <file>
 ```
 
 ### Samples

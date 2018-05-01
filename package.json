@@ -10,7 +10,10 @@
     "jest": "jest",
     "lint": "eslint .",
     "test": "./__tests__/runner.sh",
-    "jscodeshift": "jscodeshift"
+    "shift": "jscodeshift"
+  },
+  "dependencies": {
+    "jscodeshift": "^0.5.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
@@ -19,7 +22,6 @@
     "eslint-plugin-flowtype": "^2.46.1",
     "eslint-plugin-prettier": "^2.6.0",
     "jest": "^22.4.2",
-    "jscodeshift": "^0.5.0",
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1"
   },

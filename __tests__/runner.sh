@@ -10,7 +10,9 @@ do
    echo $inputFile
    declare inputFileBackup="__tests__/fixtures/$transformation/input.backup.js"
    cp $inputFile $inputFileBackup
-   yarn jscodeshift -t "transformations/$transformation.js" $inputFile
+
+   # Run the transform
+   yarn run shift -t "transformations/$transformation.js" $inputFile
 done
 
 # Run the tests
