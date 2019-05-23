@@ -10,15 +10,15 @@ module.exports = function() {
   });;
 
   const c = true;
-  expect(c).toBeTruthy();;
+  expect(c).toBeTruthy();
 
   const d = 5;
-  expect(d).not.toBe(3);;
+  expect(d).not.toBe(3);
 
   expect(() => {
     throw new Error("Wrong value");
-  }).toThrow(/value/);;
+  }).toThrow(/value/);
 
   const e = 1;
-  expect(e).toBe(1);;
+  expect(e).toBe(1);
 };
