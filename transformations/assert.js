@@ -106,14 +106,12 @@ const getTransformedSource = (source, j, fnToTransform) => {
       const args = path.value.arguments;
       const params = getParams(fnToTransform, args, j);
 
-      const a = j.expressionStatement(
-        j.callExpression(
-          j.memberExpression(
-            j.callExpression(j.identifier("expect"), params.arguments1),
-            j.identifier(params.identifier2),
-          ),
-          params.arguments2,
+      const a = j.callExpression(
+        j.memberExpression(
+          j.callExpression(j.identifier("expect"), params.arguments1),
+          j.identifier(params.identifier2),
         ),
+        params.arguments2,
       );
       return a;
     })
